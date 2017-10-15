@@ -7,10 +7,9 @@
 /* Recursively runs through network, using the
  * previous layers of perceptrons' stimulate() as input 
  */
-int Network::process(Input input, size_t max_depth, size_t curr_depth) {
+Input Network::process(Input input, size_t max_depth, size_t curr_depth) {
 	if (curr_depth > max_depth) {
-		Perceptron output(weights_, bias_);
-		return output.stimulate(input);
+		return input;
 	}
 	Input new_inputs;
 	Layer l = net_[curr_depth];

@@ -1,5 +1,6 @@
 /* network.h
- * Implements a neural network from the Perceptron class
+ * A feedforward neural network class using the Perceptron class
+ * 
  * Author: Aisosa Efemwonkieke
  * aisosaefemwonkieke@gmail.com
  */
@@ -10,8 +11,8 @@
 #include <cstdio>
 typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
-/* Does not include input perceptron which are really just inputs
- * process() acts as an output perceptron
+/* 
+ * Does not include input perceptron which are really just 
  * Net indexing starts at zero
  */
 class Network {
@@ -40,7 +41,7 @@ public:
 	 * or end at a different layer other than the first 
 	 * Note that input is a typdef in perceptron.h meaning std::vector<double> 
 	 */
-	int process(Input inputs, size_t max_depth, size_t i = 0);
+	Input process(Input inputs, size_t max_depth, size_t i = 0);
 	/*
 	 * Get functions
 	 */
