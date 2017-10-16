@@ -9,6 +9,7 @@
 
 #include "perceptron.h"
 #include <cstdio>
+const char* DEFAULT_FILE = "network.NET";
 typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
 /* 
@@ -33,7 +34,12 @@ public:
 		weights_ = weights;
 		bias_ = bias;
 	}
+	Network(const char* = DEFAULT_FILE);
 	/* Create more constructors as needed */
+
+	/* IO functions for machine learning */
+	void save_to(char* filename); 
+	void save(); // Saves to save_file
 	/* 
 	 * Runs the network outputing a single value 1 or 0 to simulate a
 	 * response of some kind.
@@ -58,5 +64,7 @@ private:
 	double bias_;
 	// This networks weights are the weights of the final depths output channels
 	Input weights_;
+	// File to save to
+	const char* save_file_; 
 };
 #endif

@@ -30,6 +30,17 @@ Input Network::get_inputs_at(Input input, size_t i) {
 	return output;
 }
 
+Network::Network(const char* filename) {
+	//TODO
+}
+void Network::save_to(char* filename) {
+	// TODO 
+}
+
+void Network::save(){
+	// TODO
+}
+
 
 
 
