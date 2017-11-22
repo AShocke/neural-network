@@ -9,8 +9,10 @@
 
 #include "perceptron.h"
 #include <cstdio>
+const char* DEFAULT_FILE = "network.NET";
 typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
+
 /* 
  * Does not include input perceptron which are really just 
  * Net indexing starts at zero
@@ -33,15 +35,23 @@ public:
 		weights_ = weights;
 		bias_ = bias;
 	}
+	Network(const char* = DEFAULT_FILE);
 	/* Create more constructors as needed */
+
+	/* IO functions for backpropogation */
+	void save_to(char* filename); 
+	void save(); // Saves to save_file
 	/* 
-	 * Runs the network outputing a single value 1 or 0 to simulate a
+	 * Runs the network outputing a single value to simulate a
 	 * response of some kind.
 	 * Optionally, you can start at a different layer other than the first in the Network
 	 * or end at a different layer other than the first 
 	 * Note that input is a typdef in perceptron.h meaning std::vector<double> 
 	 */
 	Input process(Input inputs, size_t max_depth, size_t i = 0);
+	/*************** BACKPROPOGATION *************/
+	void backpropogation(Input ouptu, Input expected);
+    /**********************************************/
 	/*
 	 * Get functions
 	 */
@@ -58,5 +68,7 @@ private:
 	double bias_;
 	// This networks weights are the weights of the final depths output channels
 	Input weights_;
+	// File to save to
+	const char* save_file_; 
 };
 #endif

@@ -27,8 +27,8 @@ public:
 	 * If a perceptrons fires succesfuly, it returns 1 else it returns 0
 	 */
 	int stimulate(Input inputs);
-	/* Todo sigmoid_stimulate() -- Uses the logistic curve for calcualtion */
-	/* TODO stimulate(Function) -- Takes in a function for */
+    double sigmoid_stimulate(Input inputs); // -- Uses the logistic curve for calcualtion */
+	/* TODO stimulate(Function) -- Takes in a function if this is even possible */
 	/*
 	 * Set functions
 	 * Mostly self explanatory
