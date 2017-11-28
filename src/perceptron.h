@@ -22,6 +22,9 @@ public:
 		arg_size_ = weights.size();
 		bias_ = bias;
 	}
+	/*
+	 * Performs the weigted sum */
+	double weighted_sum(Input inputs);
 	/* Condition: inputs.size() == weights.size()
 	 * "fires" the perceptron if Sigma(inputs[i] * weights_[i]) + bias > 0
 	 * If a perceptrons fires succesfuly, it returns 1 else it returns 0
