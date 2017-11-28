@@ -50,7 +50,7 @@ public:
 	 */
 	Input process(Input inputs, size_t max_depth, size_t i = 0);
 	/*************** BACKPROPOGATION *************/
-	void backpropogation(Input ouptu, Input expected);
+	void backpropogation(Input ouput, Input expected);
     /**********************************************/
 	/*
 	 * Get functions
