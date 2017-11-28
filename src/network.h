@@ -12,6 +12,7 @@
 const char* DEFAULT_FILE = "network.NET";
 typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
+
 /* 
  * Does not include input perceptron which are really just 
  * Net indexing starts at zero
@@ -37,17 +38,24 @@ public:
 	Network(const char* = DEFAULT_FILE);
 	/* Create more constructors as needed */
 
+<<<<<<< HEAD
 	/* IO functions for machine learning */
+=======
+	/* IO functions for backpropogation */
+>>>>>>> origin/master
 	void save_to(char* filename); 
 	void save(); // Saves to save_file
 	/* 
-	 * Runs the network outputing a single value 1 or 0 to simulate a
+	 * Runs the network outputing a single value to simulate a
 	 * response of some kind.
 	 * Optionally, you can start at a different layer other than the first in the Network
 	 * or end at a different layer other than the first 
 	 * Note that input is a typdef in perceptron.h meaning std::vector<double> 
 	 */
 	Input process(Input inputs, size_t max_depth, size_t i = 0);
+	/*************** BACKPROPOGATION *************/
+	void backpropogation(Input ouput, Input expected);
+    /**********************************************/
 	/*
 	 * Get functions
 	 */
