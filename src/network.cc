@@ -30,6 +30,7 @@ Input Network::get_inputs_at(Input input, size_t i) {
 	return output;
 }
 
+// I added a comment, now give me contributor!
 Network::Network(const char* filename) {
 	//TODO
 }
