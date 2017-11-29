@@ -30,8 +30,11 @@ Input Network::get_inputs_at(Input input, size_t i) {
 	return output;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/IO
 
 // I added a comment, now give me contributor!
 Network::Network(const char* filename) {
@@ -51,4 +54,7 @@ void Network::save(){
 
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> IO
+=======
+>>>>>>> origin/IO

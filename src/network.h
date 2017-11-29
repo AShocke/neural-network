@@ -39,14 +39,20 @@ public:
 	/* Create more constructors as needed */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	/* IO functions for backpropogation */
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/IO
 	/* IO functions for machine learning */
 =======
 	/* IO functions for backpropogation */
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> IO
+=======
+>>>>>>> origin/IO
 	void save_to(char* filename); 
 	void save(); // Saves to save_file
 	/* 
