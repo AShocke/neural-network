@@ -30,6 +30,10 @@ Input Network::get_inputs_at(Input input, size_t i) {
 	return output;
 }
 
+ 
+void Network::backpropogation(Input given_out, Input expected_out) {
+	Net costs;
+}
 Network::Network(const char* filename) {
 	//TODO
 }

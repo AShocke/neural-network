@@ -14,8 +14,8 @@ typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
 
 /* 
- * Does not include input perceptron which are really just 
- * Net indexing starts at zero
+ * NOTE: The input typdef is taken from perceptron.h and
+ * is equivalent to std::vector<double>
  */
 class Network {
 public:
