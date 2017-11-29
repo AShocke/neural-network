@@ -4,6 +4,7 @@
  * aisosaefemwonkieke@gmail.com
  */
 #include "network.h"
+#include<fstream>
 /* Recursively runs through network, using the
  * previous layers of perceptrons' stimulate() as input 
  */
@@ -31,16 +32,38 @@ Input Network::get_inputs_at(Input input, size_t i) {
 }
 <<<<<<< HEAD
 
-// I added a comment, now give me contributor!
 Network::Network(const char* filename) {
 	//TODO
 }
 void Network::save_to(char* filename) {
-	// TODO 
+	// Save weights, and biases
+	ofstream writer(filename);
+	if(writer!=NULL){
+		// Writes Neural Net size (amount of layers)
+		writer << net_.size() << "\n" << endl; 
+
+		// Iterate through the layers, hopefully
+		for (std::size_t i = 0; i < net_.size(); i++) {
+			Layer l = net_[i];
+			// Writes layer size (amount of perceptrons)
+			writer << l.size() << "\n" << endl;
+
+			// Iterate through biases and weights, hopefully
+			for (std::size_t p = 0; p < l.size(); p++) {
+				writer << l[p].get_bias() << ":" << endl;
+				wei = l[p].get_weights()
+				for (std::size_t w = 0; w < wei.size(); w++) {
+					writer << wei[w] << ":" << endl;
+				}
+			}
+			writer << "\n" << endl;
+		}
+	}
+	writer.close()
 }
 
 void Network::save(){
-	// TODO
+	save_to(DEFAULT_FILE)
 }
 
 

@@ -68,9 +68,9 @@ private:
 	// The layers in the network
 	std::size_t depth_;
 	Net net_;
-	// This networks bias is its process bias
+	// This network's bias is it's process bias
 	double bias_;
-	// This networks weights are the weights of the final depths output channels
+	// This network's weights are the weights of the final depths output channels
 	Input weights_;
 	// File to save to
 	const char* save_file_; 
