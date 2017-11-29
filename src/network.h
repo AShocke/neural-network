@@ -38,7 +38,15 @@ public:
 	Network(const char* = DEFAULT_FILE);
 	/* Create more constructors as needed */
 
+<<<<<<< HEAD
 	/* IO functions for backpropogation */
+=======
+<<<<<<< HEAD
+	/* IO functions for machine learning */
+=======
+	/* IO functions for backpropogation */
+>>>>>>> origin/master
+>>>>>>> IO
 	void save_to(char* filename); 
 	void save(); // Saves to save_file
 	/* 
