@@ -69,5 +69,9 @@ private:
 	// This network's weights are the weights of the final depths output channels
 	Input weights_;
     const char* DEFAULT_FILE = "network.NET";
+	/*
+	 * Backpropogation
+	 * TODO
+	 */
 };
 #endif
