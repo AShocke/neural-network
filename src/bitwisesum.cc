@@ -5,7 +5,6 @@
 #include "perceptron.h"
 #include "network.h"
 #include <cstdio>
-#include <iostream>
 const int INPUT_SIZE = 2;
 
 int main() {

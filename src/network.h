@@ -9,7 +9,6 @@
 
 #include "perceptron.h"
 #include <cstdio>
-const char* DEFAULT_FILE = "network.NET";
 typedef std::vector<Perceptron> Layer;
 typedef std::vector<Layer> Net;
 
@@ -35,17 +34,17 @@ public:
 		weights_ = weights;
 		bias_ = bias;
 	}
-	Network(const char* = DEFAULT_FILE);
+	Network(const char* filename);
 	/* Create more constructors as needed */
 
-	void save_to(char* filename); 
-	void save(); // Saves to save_file
+	void save_to(const char* filename); 
+	void save(); // Saves to DEFAULT_FILE
 	/* 
 	 * Runs the network outputing a single value to simulate a
 	 * response of some kind.
 	 * Optionally, you can start at a different layer other than the first in the Network
 	 * or end at a different layer other than the first 
-	 * Note that input is a typdef in perceptron.h meaning std::vector<double> 
+	 * Note that Input is a typdef in perceptron.h for std::vector<double> 
 	 */
 	Input process(Input inputs, size_t max_depth, size_t i = 0);
 	/*************** BACKPROPOGATION *************/
@@ -57,17 +56,18 @@ public:
 	/*
 	 * Condition: 0 <= i < depth_
 	 */
-	Input get_inputs_at(Input inputs, size_t i);
-	
+    Input get_inputs_at(Input inputs, size_t i);
+    Net get_net() {
+	   return net_;
+	}
 private:
-	// The layers in the network
+    // The layers in the network
 	std::size_t depth_;
 	Net net_;
-	// This networks bias is its process bias
+	// This network's bias is it's process bias
 	double bias_;
-	// This networks weights are the weights of the final depths output channels
+	// This network's weights are the weights of the final depths output channels
 	Input weights_;
-	// File to save to
-	const char* save_file_; 
+    const char* DEFAULT_FILE = "network.NET";
 };
 #endif
