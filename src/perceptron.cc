@@ -23,3 +23,10 @@ double Perceptron::sigmoid_stimulate(Input inputs) {
 	sum += bias_;
 	return 1 / (1 + exp(-sum));
 }
+// You probably need a derivative function for backprop, right?
+double Perceptron::sigmoid_derivative(Input inputs) {
+	int sum = weighted_sum(inputs);
+	sum += bias_;
+	return sum*(1-sum);
+}
+
