@@ -128,6 +128,15 @@ void Network::save(){
 	save_to(DEFAULT_FILE);
 }
 
+/*------------------------------------------------------------
+ *                    BACKPROPOGATION
+ *               The Heart of Neural Networks
+ *------------------------------------------------------------
+ *
+ * More info on backpropogation will be in
+ * backpropogation.pdf or backpropogation.md (TODO for both)
+ * 
+ */
 
 
 
