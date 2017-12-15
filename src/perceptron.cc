@@ -24,7 +24,7 @@ double Perceptron::sigmoid_stimulate(Input inputs) {
 	return 1 / (1 + exp(-sum));
 }
 double Perceptron::sigmoid_derivative(Input inputs) {
-	double s = sigmoid_stimulate(inputs)
+	double s = sigmoid_stimulate(inputs);
 	return s*(1-s); // This is actually so surprisingly simple
 }
 
