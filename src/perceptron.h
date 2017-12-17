@@ -30,7 +30,10 @@ public:
 	 * If a perceptrons fires succesfuly, it returns 1 else it returns 0
 	 */
 	int stimulate(Input inputs);
-    double sigmoid_stimulate(Input inputs); // -- Uses the logistic curve for calcualtion */
+    double sigmoid_stimulate(Input inputs); // -- Uses the logistic function for calcualtion */
+
+	// Finds the derivative of the logistic function
+	double sigmoid_prime(Input inputs);
 	/* TODO stimulate(Function) -- Takes in a function if this is even possible */
 	/*
 	 * Set functions

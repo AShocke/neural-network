@@ -23,7 +23,8 @@ double Perceptron::sigmoid_stimulate(Input inputs) {
 	sum += bias_;
 	return 1 / (1 + exp(-sum));
 }
-double Perceptron::sigmoid_derivative(Input inputs) {
+// PancakeReaper
+double Perceptron::sigmoid_prime(Input inputs) {
 	double s = sigmoid_stimulate(inputs);
 	return s*(1-s); // This is actually so surprisingly simple
 }
