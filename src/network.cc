@@ -137,6 +137,21 @@ void Network::save(){
  * backpropogation.pdf or backpropogation.md (TODO for both)
  * 
  */
+void update_weights() {
+	
+}
+void SGD(std::vector<Input> mini_batch) {
+	// backprop loop
 
+	// update weights;
+}
+void Backpropogation(Input expected, Input actual) {
+	// feed_forward
 
+	// Output error
+	Input error;
 
+	// Backpropogate the error
+
+	// Output Gradient
+}
