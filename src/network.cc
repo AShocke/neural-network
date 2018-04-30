@@ -9,8 +9,8 @@
 /* Recursively runs through network, using the
  * previous layers of perceptrons' stimulate() as input 
  */
-Input Network::process(Input input, size_t max_depth, size_t curr_depth) {
-	if (curr_depth > max_depth) {
+Input Network::feed_forward(Input input, size_t curr_depth) {
+	if (curr_depth > depth_) {
 		return input;
 	}
 	Input new_inputs;
@@ -19,7 +19,26 @@ Input Network::process(Input input, size_t max_depth, size_t curr_depth) {
 		double out = l[i].sigmoid_stimulate(input);
 		new_inputs.push_back(out);
 	}
-	return process(new_inputs, curr_depth+1, max_depth);
+	return feed_forward(new_inputs, curr_depth+1);
+}
+
+std::vector<Input> Network::feed_forward(Input input, std::vector<Input> activations, size_t curr_depth) {
+	if (curr_depth > depth_) {
+		return activations;
+	}
+	Input new_inputs;
+	Layer l = net_[curr_depth];
+	for (std::size_t i = 0; i < l.size(); i++) {
+		double out = l[i].sigmoid_stimulate(input);
+		new_inputs.push_back(out);
+	}
+	activations.push_back(new_inputs);
+	return feed_forward(new_inputs, activations, curr_depth+1);
+
+}
+
+std::vector<Input> Network::feed_backward(Input costs, std::vector<Input> activations, size_t curr_depth) {
+//TODO
 }
 
 Input Network::get_inputs_at(Input input, size_t i) {
@@ -97,13 +116,13 @@ void Network::save_to(const char* filename) {
 		// Writes Neural Net size (amount of layers)
 		writer << net_.size() << "\n"; 
 
-		// Iterate through the layers, hopefully
+		// Iterate through the layers
 		for (std::size_t i = 0; i < net_.size(); i++) {
 			Layer l = net_[i];
 			// Writes layer size (amount of perceptrons)
 			writer << l.size() << "\n";
 
-			// Iterate through biases and weights, hopefully
+			// Iterate through biases and weights
 			for (std::size_t p = 0; p < l.size(); p++) {
 				writer << l[p].get_bias() << " ";
 				Input weights = l[p].get_weights();
@@ -140,18 +159,24 @@ void Network::save(){
 void update_weights() {
 	
 }
+
 void SGD(std::vector<Input> mini_batch) {
 	// backprop loop
 
 	// update weights;
 }
-void Backpropogation(Input expected, Input actual) {
+void Network::backpropogation(Input inputs, Input expected) {
 	// feed_forward
-
+	std::vector<Input> activations;
+	activations = feed_forward(inputs, activations, 0); 
+	Input out = activations[activations.size() - 1];
 	// Output error
 	Input error;
-
+	for (unsigned i = 0; i < expected.size(); i++) {
+		error.push_back((1/2)*(out[i] - expected[i]));
+	}
 	// Backpropogate the error
-
+	feed_backward(error, activations, depth_ - 1);
 	// Output Gradient
+	// TODO
 }

@@ -46,9 +46,13 @@ public:
 	 * or end at a different layer other than the first 
 	 * Note that Input is a typdef in perceptron.h for std::vector<double> 
 	 */
-	Input process(Input inputs, size_t max_depth, size_t i = 0);
+	std::vector<Input> feed_forward(Input input, std::vector<Input>, size_t i = 0);
+	Input feed_forward(Input input, size_t i = 0);
+
 	/*************** BACKPROPOGATION *************/
-	void backpropogation(Input ouput, Input expected);
+	// feed_backward should be called with curr_depth = depth_ - 1  
+	std::vector<Input> feed_backward(Input costs, std::vector<Input> activations, size_t curr_depth); 
+	void backpropogation(Input input, Input expected);
     /**********************************************/
 	/*
 	 * Get functions
